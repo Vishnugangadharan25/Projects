@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <style>
+        ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #16ce97;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+  color:rgb(20, 1, 1);
+}
+    </style>
+    <body>
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+            <ul>
+              <li><a href="">Home</a><br><br></li>
+            <li><a href="{% url 'contact' %}">Contact</a><br><br></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if 'uid' in request.session %}
+           <li><a >{{request.session.nusername}}</a></li>
+           <li><a href="{% url 'userlogout' %}">Logout</a></li>
+           {% else %}
+            <li><a href="{% url 'ulogin' %}">Login</a><br><br></li>
+            <li><a href="{% url 'register' %}">Register</a><br><br></li>
+            {% endif %}
+            </ul>
+        </div>
+        {% for i in data %}
+        <div class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" width="300" height="300"  src="{{i.destinationImage.url}}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Goa</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Cras justo odio</li>
+              <li class="list-group-item">Dapibus ac facilisis in</li>
+              <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+          </div>
+          {% endfor %}
+    </body>
+</html>

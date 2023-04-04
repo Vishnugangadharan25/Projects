@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action="{% url 'adddestination' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            DestinationName<input type="text" name="dname" value=""><br>
+            Description<input type="text" name="description" value=""><br>
+            Price<input type="text" name="price" value=""><br>
+            Image<input type="file" name="image" value=""><br><br>
+            <input type="submit" name="Submit">
+        </form>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        {% for i in data %}
+        <form action="{% url 'updatedestination' destid=i.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            DestinationName<input type="text" name="dname" value="{{i.destinationName}}"><br>
+            Description<input type="text" name="description" value="{{i.destinationDescription}}"><br>
+            Price<input type="text" name="price" value="{{i.destinationPrice}}"><br>
+            Image<input type="file" name="image" value="{{i.destinationImage}}"><br><br>
+            <input type="submit" name="Submit">
+        </form>
+        {% endfor %}
+    </body>
+</html>

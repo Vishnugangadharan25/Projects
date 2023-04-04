@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+       <table border="4">
+        <tr>
+            <th>DestinationName</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{i.destinationName}}</td>
+                <td>{{i.destinationDescription}}</td>
+                <td>{{i.destinationPrice}}</td>
+                <td><img src="{{i.destinationImage.url}}" width="500" height="250"></td>
+                <td><a href="{% url 'editdestination' destid=i.id %}"><button>Edit</button></a></td>
+                <td><a href="{% url 'deletedestination' destid=i.id %}"><button>Delete</button></a></td>
+            </tr>
+            {% endfor %}
+        </form>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <form action="{% url 'ucontact' %}" method="post">
+            {% csrf_token %}
+            Name<input type="text" name="name"><br><br>
+            Email<input type="email" name="uemail"><br><br>
+            Message<input type="text" name="message"><br><br>
+            Subject<input type="text" name="subject"><br><br>
+            <input type="submit" name="Login">
+        </form>
+    </body>
+</html>

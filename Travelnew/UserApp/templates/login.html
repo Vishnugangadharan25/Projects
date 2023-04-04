@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <body>
+        <form action="{% url 'userlogin' %}" method="post">
+            {% csrf_token %}
+            Username<input type="text" name="user"><br><br>
+            Password<input type="password" name="pass"><br>
+            <input type="submit" name="Login">
+        </form>
+    </body>
+</html>
